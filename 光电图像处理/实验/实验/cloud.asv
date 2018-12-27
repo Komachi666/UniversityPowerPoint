@@ -1,0 +1,24 @@
+I=imread('C:\Users\jiang\Desktop\สตั้\cloud.jpg');
+[ma,na]=size(I);
+b=max(I(:));
+a=min(I(:));
+c=1.1;
+d=;
+Ip=zeros(ma,na);
+for i=1:ma
+    for j=1:na
+        if I(i,j)>b
+            Ip(i,j)=d;
+        elseif I(i,j)<a
+            Ip(i,j)=c;
+        else 
+            Ip(i,j)=(d-c)/(b-a)*(I(i,j)-a)+c;
+        end
+    end
+end
+
+subplot(211)
+imshow(I),title('original');
+subplot(212)
+imshow(Ip),title('linear');
+
